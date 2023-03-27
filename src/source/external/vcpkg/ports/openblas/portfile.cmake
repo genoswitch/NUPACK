@@ -7,7 +7,6 @@ vcpkg_from_github(
     PATCHES
         uwp.patch
         fix-redefinition-function.patch
-        fix-pkg-config.patch
         fix-uwp-build.patch
 )
 
