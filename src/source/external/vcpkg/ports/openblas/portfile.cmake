@@ -8,6 +8,7 @@ vcpkg_from_github(
         uwp.patch
         fix-redefinition-function.patch
         fix-uwp-build.patch
+        emscripten-set-target.patch
 )
 
 find_program(GIT NAMES git git.cmd)
