@@ -1,0 +1,24 @@
+diff --git a/cmake/prebuild.cmake b/cmake/prebuild.cmake
+index 2443f3c..3507a4f 100644
+--- a/cmake/prebuild.cmake
++++ b/cmake/prebuild.cmake
+@@ -109,7 +109,18 @@ if (DEFINED CORE AND CMAKE_CROSSCOMPILING AND NOT (${HOST_OS} STREQUAL "WINDOWSS
+     "#define ${TCORE}\n"
+     "#define CORE_${TCORE}\n"
+     "#define CHAR_CORENAME \"${TCORE}\"\n")
+-  if ("${TCORE}" STREQUAL "CORE2")
++  if ("${TCORE}" STREQUAL "RISCV64_GENERIC)
++    # Based on patch for OpenBLAS#2235 https://github.com/xianyi/OpenBLAS/issues/2235#issuecomment-525798313
++    # Contents Src: https://github.com/xianyi/OpenBLAS/blob/c05da5960d9d57e2ac9a8c02fe93b81e7207d394/cpuid_riscv64.c#LL131C26-L131C26
++    file(APPEND ${TARGET_CONF_TEMP}
++      "#define L1_DATA_SIZE 65536\n",
++      "#define L1_DATA_LINESIZE 32\n,
++      "#define L2_SIZE 512488\n",
++      "#define L2_LINESIZE 32\n",
++      "#define DTB_DEFAULT_ENTRIES 64\n",
++      "#define DTB_SIZE 4096\n",
++      "#define L2_ASSOCIATIVE 4\n")
++  elseif ("${TCORE}" STREQUAL "CORE2")
+     file(APPEND ${TARGET_CONF_TEMP}
+       "#define L1_DATA_SIZE\t32768\n"
+       "#define L1_DATA_LINESIZE\t64\n"

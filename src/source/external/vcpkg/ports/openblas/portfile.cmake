@@ -9,6 +9,7 @@ vcpkg_from_github(
         fix-redefinition-function.patch
         fix-uwp-build.patch
         emscripten-set-target.patch
+        add-conf-riscv64-prebuild.patch
 )
 
 find_program(GIT NAMES git git.cmd)
