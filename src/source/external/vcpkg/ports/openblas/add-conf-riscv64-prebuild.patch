@@ -7,7 +7,7 @@ index 2443f3c..3507a4f 100644
      "#define CORE_${TCORE}\n"
      "#define CHAR_CORENAME \"${TCORE}\"\n")
 -  if ("${TCORE}" STREQUAL "CORE2")
-+  if ("${TCORE}" STREQUAL "RISCV64_GENERIC)
++  if ("${TCORE}" STREQUAL "RISCV64_GENERIC")
 +    # Based on patch for OpenBLAS#2235 https://github.com/xianyi/OpenBLAS/issues/2235#issuecomment-525798313
 +    # Contents Src: https://github.com/xianyi/OpenBLAS/blob/c05da5960d9d57e2ac9a8c02fe93b81e7207d394/cpuid_riscv64.c#LL131C26-L131C26
 +    file(APPEND ${TARGET_CONF_TEMP}
