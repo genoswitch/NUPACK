@@ -11,12 +11,12 @@ index 2443f3c..3507a4f 100644
 +    # Based on patch for OpenBLAS#2235 https://github.com/xianyi/OpenBLAS/issues/2235#issuecomment-525798313
 +    # Contents Src: https://github.com/xianyi/OpenBLAS/blob/c05da5960d9d57e2ac9a8c02fe93b81e7207d394/cpuid_riscv64.c#LL131C26-L131C26
 +    file(APPEND ${TARGET_CONF_TEMP}
-+      "#define L1_DATA_SIZE 65536\n",
-+      "#define L1_DATA_LINESIZE 32\n,
-+      "#define L2_SIZE 512488\n",
-+      "#define L2_LINESIZE 32\n",
-+      "#define DTB_DEFAULT_ENTRIES 64\n",
-+      "#define DTB_SIZE 4096\n",
++      "#define L1_DATA_SIZE 65536\n"
++      "#define L1_DATA_LINESIZE 32\n
++      "#define L2_SIZE 512488\n"
++      "#define L2_LINESIZE 32\n"
++      "#define DTB_DEFAULT_ENTRIES 64\n"
++      "#define DTB_SIZE 4096\n"
 +      "#define L2_ASSOCIATIVE 4\n")
 +  elseif ("${TCORE}" STREQUAL "CORE2")
      file(APPEND ${TARGET_CONF_TEMP}
