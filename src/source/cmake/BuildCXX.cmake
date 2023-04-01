@@ -31,7 +31,7 @@ message("-- On git branch \"${NUPACK_GIT_BRANCH}\"")
 ################################################################################
 
 add_library(cxxflags INTERFACE)
-target_compile_options(cxxflags INTERFACE $<$<CONFIG:Release>:-Ofast -fomit-frame-pointer>)
+target_compile_options(cxxflags INTERFACE $<$<CONFIG:Release>:-fomit-frame-pointer>)
 
 if(${can_use_shared_mutex})
     message("-- Using std::shared_timed_mutex in C++")
