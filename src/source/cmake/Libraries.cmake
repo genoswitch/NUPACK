@@ -77,7 +77,14 @@ endif()
 ################################################################################
 
 add_library(backward INTERFACE)
-target_include_directories(backward INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/external/backward-cpp)
+
+if (NUPACK_OVERRIDE_BACKWARD_DIR)
+    message("-- Using specified backward.cpp source directory")
+    target_include_directories(backward INTERFACE ${NUPACK_OVERRIDE_BACKWARD_DIR})
+else()
+    message("-- Using default included backward.cpp source directory")
+    target_include_directories(backward INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/external/backward-cpp)
+endif()
 
 ################################################################################
 
