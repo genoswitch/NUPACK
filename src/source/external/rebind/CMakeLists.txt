@@ -8,9 +8,10 @@ set(REBIND_PYTHON_INCLUDE "" CACHE STRING "Specified include directory containin
 
 ################################################################################
 
-if (${REBIND_PYTHON_INCLUDE})
+if (REBIND_PYTHON_INCLUDE)
     message("-- Using specified Python include")
     set_property(GLOBAL PROPERTY rebind_python_include ${REBIND_PYTHON_INCLUDE})
+    set_property(GLOBAL PROPERTY python_include ${rebind_python_include})
 else()
     execute_process(
         COMMAND ${REBIND_PYTHON} -c "import sys, sysconfig; sys.stdout.write(sysconfig.get_paths()['include'])"
