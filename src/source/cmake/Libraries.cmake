@@ -118,10 +118,20 @@ target_include_directories(nupack-boost INTERFACE
 ################################################################################
 
 add_library(boostsimd INTERFACE)
-target_include_directories(boostsimd INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/external/boost-simd/include>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
-)
+
+if (NUPACK_OVERRIDE_BOOSTSIMD_INCLUDE_DIR)
+    message("-- Using specified Boost.SIMD include")
+    target_include_directories(boostsimd INTERFACE
+        $<BUILD_INTERFACE:${NUPACK_OVERRIDE_BOOSTSIMD_INCLUDE_DIR}>
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+    )
+else()
+    message("-- Using default BOOST.SIMD include")
+    target_include_directories(boostsimd INTERFACE
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/external/boost-simd/include>
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+    )
+endif()
 
 ################################################################################
 
