@@ -4,7 +4,7 @@ project(rebind VERSION 0.0.0 LANGUAGES CXX)
 ################################################################################
 
 set(REBIND_PYTHON "python" CACHE STRING "Specified Python executable used to deduce include directory")
-set(REBIND_PYTHON_INCLUDE "" CACHE STRING "Specified include directory containing Python.h")
+#set(REBIND_PYTHON_INCLUDE "" CACHE STRING "Specified include directory containing Python.h")
 
 ################################################################################
 
